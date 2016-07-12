@@ -1,0 +1,478 @@
+/*------------------------------------------------------------------
+[Table of contents]
+
+1. Blog Classic
+2. Post Classic
+3. Navigation
+4. FAQ
+-------------------------------------------------------------------*/
+
+/* ==========================================================================
+   [Start] Blog Classic
+========================================================================== */
+
+/*** Blog Type ***/
+
+.entry-blog {
+    .entry-gallery .carousel-control{
+       
+    }
+    .entry-video iframe {
+        
+    }
+    .entry-quote {
+        blockquote {
+           
+        }
+    }
+}
+
+/**
+* ----> Single Post
+*/
+.single {
+	.zo-blog-detail{
+		background: #f7f7f7;
+		padding: 40px;
+		@include breakpoint-max($screen-md){
+			padding: 15px;
+		}
+	}
+	.zo-blog-image{
+		position: relative;
+		.category{
+			position: absolute;
+			bottom: 40px;
+			left: 0px;
+			background: $primary-color;
+			padding: 5px 40px;
+			text-transform: capitalize;
+			a:hover{
+				color: #fff;
+			}
+		}
+	}
+	.zo-blog-gallery{
+		.carousel-control{
+			span{
+				top: 50%;
+				position: absolute;
+				@include transform(translatey(-50%));
+			}
+		}
+	}
+    .social-list {
+		display: inline-block;
+		padding: 0;
+		margin: 0;
+        li {
+            display: inline-block;
+            list-style: none;
+			padding: 0 7px;
+            .fa {
+                display: block;
+                text-align: center;
+                font-size: 12px;
+				color: #212121;
+				&:hover {
+					color: $primary_color;
+				}
+            }
+        }
+    }
+    .post-navigation {
+        padding: 10px 0;
+        border-top: 1px solid #141414;
+        border-bottom: 1px solid #141414;
+    }
+	.author-bio{
+		padding: 30px;
+		margin: 50px 0px;
+		border: 1px solid #efefef;
+		display: flex;
+		.author-img {
+			margin-right: 20px;
+			img{
+				width: 130px;
+				height: 130px;
+				max-width: none;
+			}
+			@include breakpoint-max($screen-sm){
+				img{
+					width: 70px;
+					height: 70px;
+				}
+			}
+		}
+		.author-title{
+			font-size: 16px;
+			text-transform: uppercase;
+			line-height: 20px;
+			font-weight: 400;
+		}
+		.author-description{
+			font-size: 14px;
+			font-family: work san;
+			line-height: 28px;
+			letter-spacing: 0.04em;
+			color: rgb(119, 119, 119);
+		}
+	}
+	
+    .post-teaser {
+        .zo-blog-detail {
+			.zo-blog-content {
+				margin-bottom: 25px;
+			}
+			.zo-blog-meta {
+				position: relative;
+				padding-right: 15px;
+				ul {
+					padding-left: 0;
+					margin: 15px 0 0;
+					li {
+						display: inline-block;
+						position: relative;
+						padding-right: 15px;
+						font-family: Work Sans;
+						font-size: 13px;
+						color: #777;
+						line-height: 27px;
+						a{
+							color: #777;
+							&:hover{
+								color: $primary-color;
+							}
+						}
+						i{
+							color: $primary-color;
+						}
+						.social-list{
+							i{
+								color: #777;
+								&:hover{
+									color: $primary-color;
+								}
+							}
+						}
+					}
+				}
+			}
+        }
+    }
+}
+
+.page, .blog, .archive, .search{
+	.post-teaser {
+		margin-bottom: 50px;
+		position: relative;
+		blockquote{
+			margin-left: 0;
+			margin-right: 0;
+			margin-top: 0;
+		}
+		.zo-blog-image{
+			position: relative;
+			&:before{
+				content: "";
+				position: absolute;
+				width: 0%;
+				height: 100%;
+				background: #000;
+				opacity: 0.2;
+				top: 0;
+				left: 0;
+				z-index: 1;
+				@include transition(all .5s);
+				overflow: hidden;
+			}
+			&:hover{
+				&:before{
+					width: 45%;
+					@include transition(all .5s);
+				}
+			}
+		}
+		.zo-blog-detail {
+			.zo-blog-meta {
+				margin-bottom: 10px;
+				color: #212121;
+				ul {
+					padding-left: 0;
+					li {
+						display: inline-block;
+						padding-right: 15px;
+						font-size: 13px;
+						color: #777;
+						line-height: 27px;
+						a{
+							color: #777;
+							&:hover{
+								color: $primary-color;
+							}
+						}
+						i{
+							color: $primary-color;
+							margin-right: 3px;
+						}
+					}
+				}
+			}
+			.zo-blog-content {
+				font-size: 14px;
+				color: #666666;
+				line-height: 27px;
+				@include breakpoint-in($screen-sm,$screen-md){
+					display: none;
+				}
+			}
+			.zo-blog-readmore a {
+				color: #111;
+				font-size: 14px;
+				font-style: italic;
+				@extend .zo_extra_font1;
+				&:hover {
+					color: $primary-color;
+				}
+			}
+		}
+		.no-image{
+			position: relative !important;
+			width: 100% !important;
+		}
+		.zo-blog-detail{
+			position: absolute;
+			top: 0px;
+			background: #f7f7f7;
+			height: 100%;
+			right: 0px;
+			width: 55%;
+			padding: 30px;
+		}
+		.zo-blog-category{
+			display: inline-block;
+			background: $primary-color;
+			padding: 0px 40px;
+			position: relative;
+			left: -30px;
+			text-transform: capitalize;
+			margin-top: 40px;
+			margin-bottom: 30px;
+			a{
+				@extend .zo_extra_font1;
+				font-size: 15px;
+				color: #111;
+				&:hover{
+					color: #fff;
+				}
+			}
+		}
+		.zo-blog-title{
+			a {
+				color: #111;
+				font-size: 16px;
+				line-height: 27px;
+				letter-spacing: 0.1em;
+				font-weight: 400;
+				&:hover {
+					color: $primary_color;
+				}
+			}
+		}
+		@include breakpoint-in($screen-sm, $screen-lg){
+			.zo-blog-category{
+				margin-top: 0px;
+				margin-bottom: 16px;
+			}
+		}
+		@include breakpoint-max($screen-sm){
+			.zo-blog-image,.zo-blog-detail{
+				width: 100%;
+				position: relative;
+			}
+		}
+	}
+}
+
+@include breakpoint-in(768px,992px){
+	.page .post-teaser .zo-blog-detail .zo-blog-content{
+		min-height: 85px;
+	}
+}
+
+/* ==========================================================================
+   [End] Blog Classic
+========================================================================== */
+
+/* ==========================================================================
+   [Start] Navigation
+========================================================================== */
+.navigation {
+    text-align: center;
+    .pagination {
+		margin-bottom: 40px;
+		a, .current {
+			border: 0px;
+			color: $primary-color;
+			margin: 0 5px;
+			border-bottom: 2px $primary-color solid;
+			box-sizing: content-box;
+			width: 42px;
+			display: inline-block;
+			height: 40px;
+			line-height: 40px;
+			&:hover {
+				background-color: $primary-color;
+				color: #fff;
+				border-bottom: 2px solid  $primary-color;
+			}
+		}
+		span.current {
+			background-color: $primary-color;
+			color: #fff;
+			border-bottom: 2px solid $primary-color;
+		}
+    }
+}
+
+/* ==========================================================================
+   [End] 3. Navigation
+========================================================================== */
+
+/*=================================================================
+ [Start] Portfolio
+*==================================================================*/
+
+/*=================================================================
+ [End] Portfolio
+*==================================================================*/
+
+/*=================================================================
+ [Start] Team
+*==================================================================*/
+
+/*=================================================================
+ [End] Team
+*==================================================================*/
+
+/*=================================================================
+ [Start] Testimonial
+*==================================================================*/
+
+/*=================================================================
+ [End] Testimonial
+*==================================================================*/
+
+/*=================================================================
+ [Start] Client
+*==================================================================*/
+.our-partners {
+    text-align: center;
+    img {
+        display: inline-block;
+        border: 1px solid #ececec;
+        margin-bottom: 15px!important;
+		@include breakpoint-min(640px){
+			margin-left: 15px!important;
+		}
+    }
+}
+
+/*=================================================================
+ [End] Client
+*==================================================================*/
+
+
+/* ==========================================================================
+   [Start] FAQ
+========================================================================== */
+.vc_tta-panel-body {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+	padding-top: 55px !important;
+	.vc_toggle_default {
+		border: 1px solid #ececec;
+		padding: 15px 35px 15px 25px;
+		.vc_toggle_title {
+			padding-left: 0 !important;
+			h4 {
+				font-size: 14px;
+				font-weight: normal;
+				letter-spacing: 0;
+			}
+			.vc_toggle_icon {
+				left: auto !important;
+				right: -10px;
+			}
+		}
+		.vc_toggle_content {
+			padding-left: 0 !important;
+			font-size: 13px;
+		}
+		&.vc_toggle_active {
+			border-color: #909090;
+		}
+	}
+}
+/* ==========================================================================
+   [End] Blog Classic
+========================================================================== */
+
+
+/**
+* Custom Carousel
+*/
+.custom-carousel.owl-carousel {
+    .owl-item {
+        color: #FFF;
+        h2 {
+            font-size: 26px;
+            line-height: 60px;
+            letter-spacing: 0.1em;
+            font-weight: 400;
+            color: #FFF;
+        }
+        p {
+            @extend .font-second;
+            font-size: 22px;
+            font-style: italic;
+            color: #FFF;
+        }
+    }
+    .owl-nav {
+        text-align: left;
+        margin-top: 40px;
+        [class*="owl-"] {
+            background-color: transparent;
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+            height: 34px;
+            width: 34px;
+            line-height: 30px;
+            font-size: 20px;
+            color: #FFF;
+            border: 1px solid #FFF;
+            text-align: center;
+            @include border-radius(0);
+            i {
+                line-height: normal;
+            }
+            &.owl-prev {
+                margin-right: 40px;
+                position: relative;
+                &:after {
+                    width: 40px;
+                    height: 1px;
+                    background-color: #FFF;
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    right: -41px;
+                }
+            }
+        }
+    }
+}
+
+
